@@ -1,4 +1,12 @@
 # 使用Unity制作的Minecraft
+## 简介
+本工程基于项目：[Jin-Yuhan/MinecraftClone-Unity](https://github.com/Jin-Yuhan/MinecraftClone-Unity)
+
+因想要实现的东西与Minecraft有些差异，自由度不如以前，所以单独新开Dev分支进行开发
+
+目前处于新手状态，以前没有使用Unity
+
+## 基本游戏界面
 
 ![Screenshot](Screenshots/0.png)
 
@@ -52,6 +60,7 @@
 4. [Making a Minecraft Clone](https://www.shedelbower.dev/projects/minecraft_clone/)
 5. [Minecraft_Wiki](https://minecraft-zh.gamepedia.com/Minecraft_Wiki)
 6. [炒鸡嗨客协管徐的CSDN博客](https://blog.csdn.net/xfgryujk)
+7. [使用Unity5.4开发《我的世界》Minecraft（入门教程）](http://www.sikiedu.com/my/course/36)
 
 
 
