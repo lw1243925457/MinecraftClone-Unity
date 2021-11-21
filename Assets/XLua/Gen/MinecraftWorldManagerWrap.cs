@@ -21,7 +21,7 @@ namespace XLua.CSObjectWrap
         {
 			ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
 			System.Type type = typeof(Minecraft.WorldManager);
-			Utils.BeginObjectRegister(type, L, translator, 0, 13, 8, 0);
+			Utils.BeginObjectRegister(type, L, translator, 0, 13, 9, 0);
 			
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetCurrentItemType", _m_GetCurrentItemType);
 			Utils.RegisterFunc(L, Utils.METHOD_IDX, "GetCurrentItem", _m_GetCurrentItem);
@@ -44,6 +44,7 @@ namespace XLua.CSObjectWrap
             Utils.RegisterFunc(L, Utils.GETTER_IDX, "WorldSettingsSavingPath", _g_get_WorldSettingsSavingPath);
             Utils.RegisterFunc(L, Utils.GETTER_IDX, "ChunkManager", _g_get_ChunkManager);
             Utils.RegisterFunc(L, Utils.GETTER_IDX, "EntityManager", _g_get_EntityManager);
+            Utils.RegisterFunc(L, Utils.GETTER_IDX, "SyncContext", _g_get_SyncContext);
             Utils.RegisterFunc(L, Utils.GETTER_IDX, "MainCamera", _g_get_MainCamera);
             Utils.RegisterFunc(L, Utils.GETTER_IDX, "InventoryManager", _g_get_InventoryManager);
             
@@ -200,9 +201,9 @@ namespace XLua.CSObjectWrap
                     byte _state = (byte)LuaAPI.xlua_tointeger(L, 6);
                     bool _lightBlocks = LuaAPI.lua_toboolean(L, 7);
                     bool _tickBlocks = LuaAPI.lua_toboolean(L, 8);
-                    bool _updateNeighborChunks = LuaAPI.lua_toboolean(L, 9);
+                    bool _updateNeighborSections = LuaAPI.lua_toboolean(L, 9);
                     
-                        bool gen_ret = gen_to_be_invoked.SetBlockType( _x, _y, _z, _block, _state, _lightBlocks, _tickBlocks, _updateNeighborChunks );
+                        bool gen_ret = gen_to_be_invoked.SetBlockType( _x, _y, _z, _block, _state, _lightBlocks, _tickBlocks, _updateNeighborSections );
                         LuaAPI.lua_pushboolean(L, gen_ret);
                     
                     
@@ -652,6 +653,20 @@ namespace XLua.CSObjectWrap
 			
                 Minecraft.WorldManager gen_to_be_invoked = (Minecraft.WorldManager)translator.FastGetCSObj(L, 1);
                 translator.Push(L, gen_to_be_invoked.EntityManager);
+            } catch(System.Exception gen_e) {
+                return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
+            }
+            return 1;
+        }
+        
+        [MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+        static int _g_get_SyncContext(RealStatePtr L)
+        {
+		    try {
+                ObjectTranslator translator = ObjectTranslatorPool.Instance.Find(L);
+			
+                Minecraft.WorldManager gen_to_be_invoked = (Minecraft.WorldManager)translator.FastGetCSObj(L, 1);
+                translator.Push(L, gen_to_be_invoked.SyncContext);
             } catch(System.Exception gen_e) {
                 return LuaAPI.luaL_error(L, "c# exception:" + gen_e);
             }
