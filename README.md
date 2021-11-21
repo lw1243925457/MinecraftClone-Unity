@@ -2,6 +2,13 @@
 
 [这里是中文的README（Here is the README in Chinese）](README_CN.md)
 
+## Intro
+Base project: [Jin-Yuhan/MinecraftClone-Unity](https://github.com/Jin-Yuhan/MinecraftClone-Unity)
+
+Because the mechanics are different, so open new branch.
+
+## Game Picture
+
 ![Screenshot](Screenshots/0.png)
 
 ![Screenshot](Screenshots/1.png)
